@@ -1,5 +1,5 @@
 High level Requirements:
-        *Diplay all songs
+        *Display all songs
         *Artist name
 	*Album name
         *Genre type
