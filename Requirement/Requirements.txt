@@ -1,7 +1,7 @@
 High level Requirements:
         *Diplay all songs
-		*Artist name
-		*Album name
+        *Artist name
+	*Album name
         *Genre type
         *Podcast
         *Insert songs
@@ -14,6 +14,6 @@ High level Requirements:
 
 Low level Requirements: 
         *Create account
-		*Login
-		*User name
-		*Password
+	*Login
+	*User name
+	*Password
