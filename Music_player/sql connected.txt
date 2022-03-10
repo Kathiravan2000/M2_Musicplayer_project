@@ -1,0 +1,92 @@
+create database Music;
+use Music;
+DROP DATABASE music;
+create table Songs(
+songid int primary key auto_increment,
+songname varchar(255) not null,
+artistName varchar(255),
+albumName varchar(255),
+genreType varchar(255),
+songDuration Time
+);
+drop table Songs;
+insert into Songs values
+(1001,'naanga vera mari','Yuvanshankar raja','valimai','folk','00:04:14'),
+(1002,'Sivakumar pondati','hiophop aadhi','sivakumar sabadham','gana','00:03:16'),
+(1003,'neeye oli','shan vincent','Sarpetta parambari','rap','00:03:57'),
+(1004,'Soorayaatam','santosh narayana','maahan','folk','00:04:41'),
+(1005,'vathi kuchi','Yuvanshankar raja','dheena','folk','00:04:14'),
+(1006,'Thala pola varuma','Ajith kumar','attagasam','folk','00:4:10'),
+(1007,'jai sulthan','Vivel mervin','sulthan','folk','00:4:39'),
+(1008,'surviva','ajith kumar','vivegam','rap','00:3:26'),
+(1009,'Vaathi coming','Aniruth','master','r&b','00:5:21'),
+(1010,'Vuroam puliamaram','Yuvanshankar raja','parthiveeran','folk','00:56:21');
+
+select * from songs where artistName='Yuvanshankar raja';
+create table Podcasts(
+podcastid int primary key auto_increment,
+podcastname varchar(255),
+celebritiesName varchar(255),
+type varchar(255),
+releasedate date,
+duration time
+);
+
+insert into Podcasts values
+(101,'Thala pola varuma','Ajith kumar','party','2021-06-14','00:48:10'),
+(102,'jai sulthan','Vivel mervin','folk','2021-05-12','00:43:39'),
+(103,'surviva','ajith kumar','Inspirational','2019-11-07','00:39:26'),
+(104,'Vaathi coming','Aniruth','r&b','2017-01-11','00:56:21');
+
+
+create table if not exists playlist(
+playlistname varchar(255) not null,
+songid int ,
+podcastid int 
+);
+Alter table playlist
+add constraint fk_songid
+foreign key(songid)
+references songs(songid);
+alter table playlist
+add constraint fk_podcastid
+foreign key(podcastid)
+references Podcasts(podcastid);
+
+
+
+insert into playlist values
+('MyCollection',1001,101 ),
+('FavouritesSong',1003,103);
+ create table user(
+  userid int,
+  username varchar(256),
+     emailid varchar(256),
+     passcode varchar(256)
+ );
+ create table playAudio(
+ songname varchar(255) not null,
+ songpath varchar(255) not null,
+ );
+ insert into playAudio values
+ ('naanga vera mari','Yuvanshankar_Raja_Naanga_Vera_Maari_From__Valimai_'),
+('Sivakumar pondati','Hiphop_Tamizha_Sivakumar_Pondati_From__Sivakumarin_Sabadham_'),
+('neeye oli','Neeye-Oli-MassTamilan.fm'),
+('Soorayaatam','Santhosh Narayanan - Soorayaatam (From _Mahaan_)'),
+('jai sulthan','Vivek - Mervin - Jai Sulthan'),
+('Vaathi coming','Anirudh Ravichander - Vaathi Coming');
+
+
+
+desc songs;
+desc Podcasts;
+desc playlist;
+desc playaudio;
+
+
+
+select * from songs;
+select * from playaudio;
+select * from playlist;
+select * from podcasts;
+select * from User;
